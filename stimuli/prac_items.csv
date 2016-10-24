@@ -1,0 +1,3 @@
+# Prac items
+"int unique_identifier";"int set_identifier";"string sound_filename";"int reaction_time_delay";"string start_sentence";"string critical_word";"FacialType facial_type";"PronounType pronoun_type";"int expected_answer"
+1;1;"bada1.wav";100;"Evil sentence";"Evil";frown;hij;0

@@ -18,12 +18,23 @@ HISTORY:
 record TestOutput
 {
     int         trialnum;       // trial number
+    string gender;
 
-    int         id;             // item id
-    ItemType    type;           // item type
-    string      sndfn;          // stimulus sound filename
+    int age;
+    int list_nr;
+    int unique_identifier;
+    int set_identifier;
+    string sound_filename;
+    int reaction_time_delay;
+    string start_sentence;
+    string critical_word;
+    FacialType facial_type;
+    PronounType pronoun_type;
 
-    int         value;          // response value: 0=no, 1=yes
+    int expected_answer;
+    int answer;          // response value: 0=no, 1=yes
+    int correctness;
+    int rt;
 }
 
 

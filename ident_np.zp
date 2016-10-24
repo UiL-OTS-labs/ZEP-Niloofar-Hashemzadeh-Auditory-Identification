@@ -7,7 +7,7 @@ DESCRIPTION:
 
 Implementation of task: Auditory Identification with Yes-No Response
 
-For more information on the ident_yn task see readme.txt in the 
+For more information on the ident_yn task see readme.txt in the
 test folder.
 
 
@@ -42,6 +42,7 @@ Experiment experiment
     on_event:entry()
     {
         show_test_windows();
+        test::load_stimuli();
     }
 
 

@@ -14,44 +14,117 @@ HISTORY:
 
 \******************************************************************************/
 
+plugin zep_file;
+
+// Practice item table.
+//   index: item number
+TestItem[..] prac_items;
+
+// Test item table.
+//   index: item number
+TestItem[..] test_items;
 
 // Symbolic definition of item type.
-enum ItemType
+enum PronounType
 {
-    S1,                 // ba-da continuum step 1 (begin)
-    S2,                 // ba-da continuum step 2
-    S3,                 // ba-da continuum step 3 (center)
-    S4,                 // ba-da continuum step 4
-    S5,                 // ba-da continuum step 5 (end)
+    ik,
+    hij,
 }
 
+// Symbolic definition of item type.
+enum FacialType
+{
+    frown,
+    smiling,
+}
+
+/*
+unique_identifier
+set_identifier
+soundfilename
+reaction_time_delay
+start_sentence
+critical_word
+facial_type
+pronoun_type
+*/
 
 // Item table record.
 record TestItem
 {
-    int         id;             // item id
-    ItemType    type;           // item type
-    string      sndfn;          // stimulus sound filename
+    int unique_identifier;
+    int set_identifier;
+    string sound_filename;
+    int reaction_time_delay;
+    string start_sentence;
+    string critical_word;
+    FacialType facial_type;
+    PronounType pronoun_type;
+    int expected_answer;
 }
 
-
-// Practice item table.
-//   index: item number
-TestItem[..] prac_items =
+int load_stimuli()
 {
-    {1,         S1,     "bada1.wav"},
-    {2,         S5,     "bada5.wav"},
-    {3,         S3,     "bada3.wav"},
-};
+   if (load_prac_stimuli() != OK || all_items_files_exists(test_items) != OK )
+    {
+      println("problem loading PRACTICE stimuli from file, terminating\n" );
+      return ERROR;
+    }
 
+    if (load_test_stimuli() != OK || all_items_files_exists(prac_items) != OK )
+    {
+      println("problem loading TEST stimuli from file, terminating\n" );
+      return ERROR;
+    }
 
-// Test item table.
-//   index: item number
-TestItem[..] test_items =
+    return OK;
+}
+
+// Loads item table(s) from CSV file(s) in the stimuli folder.
+int load_prac_stimuli()
 {
-    {1,         S1,     "bada1.wav"},
-    {2,         S2,     "bada2.wav"},
-    {3,         S3,     "bada3.wav"},
-    {4,         S4,     "bada4.wav"},
-    {5,         S5,     "bada5.wav"},
-};
+    // Uncomment relevant parts below to load stimuli from CSV file.
+    int err;
+
+    // Load data into test_prac_items table.
+    err = prac_items.load(stimuli_dir() + "prac_items.csv",
+        true,           // if true, file contains a header row
+        1);             // number of lines to skip before header and data
+    if (err) return err;
+
+    return OK;
+}
+
+int load_test_stimuli()
+{
+    // Uncomment relevant parts below to load stimuli from CSV file.
+    int err;
+    // Load data into test_items table.
+    err = test_items.load(stimuli_dir() + "test_items1.csv",
+        true,           // if true, file contains a header row
+        1);             // number of lines to skip before header and data
+    if (err) return err;
+    return OK;
+}
+
+int all_items_files_exists(TestItem[] items)
+{
+    int index = 0;
+
+    while(index < items.size)
+    {
+        TestItem item = items[index];
+
+        string full_path_to_sound_file = stimuli_dir() + "sounds/" + item.sound_filename;
+
+
+        if(!file_exists(full_path_to_sound_file))
+        {
+            println("ERROR: could not locate " + full_path_to_sound_file);
+             return ERROR;
+        }
+        index = index + 1;
+    }
+
+    return OK;
+}
