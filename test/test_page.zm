@@ -126,26 +126,6 @@ Page test_page
             }
         }
 
-
-        ButtonGadget again
-        {
-            init()
-            {
-                text = REPEAT_BUTTON_TEXT;
-                font_family = TEST_PAGE_BUTTON_FONT_FAMILY;
-                font_size = TEST_PAGE_BUTTON_FONT_SIZE;
-                fill_pattern_color = TEST_PAGE_BUTTON_COLOR;
-                text_color = TEST_PAGE_BUTTON_TEXT_COLOR;
-            }
-
-
-            on_event:activate()
-            {
-                stimulus.play(event_time + 100ms);
-            }
-        }
-
-
         time start_fixation(time t)
         {
             // Start fixation cross.
@@ -259,7 +239,7 @@ Page test_page
     // Performs preparatory work required before using this page.
     void setup(int ntrials=-1, bool fb=false, bool pr=false)
     {
-        test_page_overlay.setup(this);
+        test_page_overlay.setup(this, fb);
 
         // Show or hide prompt.
         test_page_overlay.show_prompt(pr ?
@@ -320,8 +300,7 @@ Page test_page
         // Update status line on control window. Cleared in done() above.
         control.set_status(
             string(item.unique_identifier) + "  " +
-            string(item.facial_type) + "  " +
-            string(item.pronoun_type));
+            string(item.expected_answer));
 
 
         // Remember who to signal when the trial is over.
