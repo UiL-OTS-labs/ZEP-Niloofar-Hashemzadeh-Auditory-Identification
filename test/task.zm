@@ -73,21 +73,18 @@ Block task
     {
         TestItem        item;   // current item
 
-
         on_event:entry()
         {
             num_cycles = prac_items.size;
 
             // Prepare test page: progress bar and prompt enabled.
-            test_page.setup(num_cycles, false, true);
+            test_page.setup(num_cycles, true, false);
         }
-
 
         on_event:exit()
         {
             test_page.cleanup();
         }
-
 
         Trial trial
         {

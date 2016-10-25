@@ -53,57 +53,77 @@ Page test_page
             height = 0;     // 0 means as large as possible
         }
 
-
         CanvasGadget left_canvas
         {
-            init()
+            void feedback() {
+                fill_pattern_color=rgb:F74040;
+                neg.alpha = 1.0;
+            }
+            void setup()
             {
                 is_visible=true;
-                fill_pattern_color = rgb:E97E5D;
-                size = test_window1.width/2, 0;
+                fill_pattern_color = rgb:F79999;
+                size = test_window1.width/2, test_window1.height;
                 offset_x = width / 2;
-                offset_y = height / 2;
+                offset_y = height / 3;
+
+                neg.alpha = 0.5;
             }
 
-
-            TextShape
+            RectangleShape neg
             {
                 init()
                 {
                     is_visible=true;
-                    text = "✗";
-                    x= 100;
-                    y= 100;
-                    line_pattern_color = color:black;
-                    font_family = TEST_PAGE_PROMPT_FONT_FAMILY;
-                    font_size = TEST_PAGE_PROMPT_FONT_SIZE;
+                    alpha=0.5;
+                    height=20;
+                    width=200;
+                    x=floor(-width/2.0);
+                    fill_pattern_color = color:black;
                 }
             }
         }
 
         CanvasGadget right_canvas
         {
-            init()
+            void feedback()
             {
-                fill_pattern_color = rgb:C8E95D;
-                size = test_window1.width/2, 0;
-                offset_x = width / 2;
-                offset_y = height / 2;
+                fill_pattern_color=rgb:3CE84A;
+                pos.alpha = 1.0;
             }
 
-            TextShape
+            void setup()
+            {
+                is_visible=true;
+                fill_pattern_color = rgb:85E58D;
+
+                size = test_window1.width/2, test_window1.height;
+                offset_x = width / 2;
+                offset_y = height / 3;
+
+                pos.alpha = 0.5;
+            }
+
+            CrossShape pos
             {
                 init()
                 {
-                    text="✓";
+                    is_visible=true;
+                    line_pattern_color = color:black;
+                    alpha=0.5;
+                    radius = layout.left_canvas.neg.width/2;
+                    line_width = layout.left_canvas.neg.height;
                 }
             }
+
         }
 
 
         void reset()
         {
             full_abort();
+            left_canvas.setup();
+            right_canvas.setup();
         }
     }
 
@@ -161,7 +181,13 @@ Page test_page
 
                 ignore_remaining_hits();
 
-                stop();
+                if(val == 0)
+                    layout.left_canvas.feedback();
+                else
+                    layout.right_canvas.feedback();
+
+
+                stop(t+500ms);
             }
             else if (validity == HIT_TOO_EARLY || validity == HIT_TOO_LATE)
             {
@@ -169,10 +195,8 @@ Page test_page
             }
         }
 
-
         on_event:finish()
         {
-            done(CONTINUE);
             real feedback = 0;
             if (num_valid_hits > 0) feedback = correctness ? 1 : -1;
 
@@ -180,6 +204,11 @@ Page test_page
                     FEEDBACK_DURATION))
                 done(CONTINUE);
         }
+
+       on_event:message()
+       {
+           done(CONTINUE);
+       }
     }
 
 
@@ -187,8 +216,9 @@ Page test_page
     // of the trial that we're done.
     void done(int msgid)
     {
-        // Just in case; abort presentation if still active.
         layout.reset();
+
+        // Just in case; abort presentation if still active.
         stimulus.abort();
 
         signal_target(msgid);   // tell caller we're done
@@ -237,18 +267,17 @@ Page test_page
         // Save the passed trial control parameters.
         item = it;
 
-
         // Show this page (if not yet done) and make tref the trial start time.
         tref = test_window1.show_test_page(this, tref + INTERTRIAL_INTERVAL);
-
 
         // Reset response data.
         response.clear();
 
+        // Resets layout
+        layout.reset();
 
         // Start stimulus at fixation offset.
         time stimoffset = stimulus.play(tref);
-
 
         // Response interval starts at stimulus offset.
         response.start(stimoffset);

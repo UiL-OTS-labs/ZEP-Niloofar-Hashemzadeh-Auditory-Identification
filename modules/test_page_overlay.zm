@@ -120,7 +120,6 @@ VerticalLayout test_page_overlay
 
             void reset()
             {
-                abort();
                 image1.image    = stimuli_dir() + "images/owl_neutral_sign.svg";
                 feedback.fill_pattern_color = color:none;
             }
