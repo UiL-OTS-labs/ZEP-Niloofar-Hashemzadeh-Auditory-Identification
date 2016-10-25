@@ -61,7 +61,7 @@ VerticalLayout test_page_overlay
             {
                 feedback.size = test_window1.width, test_window1.height-(main.top_margin+main.bottom_margin);
                 feedback.offset_y = floor(feedback.actual_height/2.0);
-                image1.offset_y = floor(-image1.height/2.0);
+                image1.offset_y = floor(-image1.image_height/2.0);
                 image1.y = image1.image_height/4;
             }
 
@@ -70,8 +70,6 @@ VerticalLayout test_page_overlay
                 image1.is_visible = enabled;
 
                 image1.image    = stimuli_dir() + "images/owl_neutral_sign.svg";
-                image1.width    = 630;
-                image1.height   = 460;
 
                 set_offsets();
             }
