@@ -13,11 +13,12 @@ appealing features, and auditory instruction (Dutch).
 Author:
 Chris van Run (UiL-OTS) <labman.gw@uu.nl>
 
-Client: Niloofar Hashemzadeh
+Client:
+Niloofar Hashemzadeh
 
 Supervisors:
-* prof. dr. Frank Wijnen
-* prof. dr. Hugo Quené
+* Prof. dr. Frank Wijnen
+* Prof. dr. Hugo Quené
 * Anne van Leeuwen MA
 
 
@@ -28,7 +29,7 @@ Supervisors:
 * You can then start up the experiment by typing: `zep ident_pn` or `zep-1.12 ident_pn`
 
 ## Acknowledgements
-* Speaker of the audio (todo).
+* Speaker of the audio: Dr. Frans Adriaans..
 * https://www.vecteezy.com/ for the original owl artwork that was modified by Chris.
 
 ## About Zep

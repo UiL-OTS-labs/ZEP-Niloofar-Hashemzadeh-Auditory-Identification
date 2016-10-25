@@ -45,94 +45,59 @@ Page test_page
     }
 
 
-    VerticalLayout layout
+    HorizontalLayout layout
     {
         init()
         {
-            spacing = 50;
+            spacing = 0;
             height = 0;     // 0 means as large as possible
         }
 
 
-        CanvasGadget canvas
+        CanvasGadget left_canvas
         {
             init()
             {
-//                fill_pattern_color = TEST_PAGE_STIMULUS_COLOR;
-                size = 450, 100;
+                is_visible=true;
+                fill_pattern_color = rgb:E97E5D;
+                size = test_window1.width/2, 0;
                 offset_x = width / 2;
                 offset_y = height / 2;
             }
 
 
-            CrossShape fixation
+            TextShape
             {
                 init()
                 {
-                    radius = 15;
-                    line_width = 5;
-                    line_pattern_color = color:crimson;
+                    is_visible=true;
+                    text = "✗";
+                    x= 100;
+                    y= 100;
+                    line_pattern_color = color:black;
+                    font_family = TEST_PAGE_PROMPT_FONT_FAMILY;
+                    font_size = TEST_PAGE_PROMPT_FONT_SIZE;
                 }
             }
         }
 
-
-        HorizontalLayout buttons
+        CanvasGadget right_canvas
         {
             init()
             {
-                spacing = 50;
-                options = LAYOUT_EQUAL_WIDTH;
+                fill_pattern_color = rgb:C8E95D;
+                size = test_window1.width/2, 0;
+                offset_x = width / 2;
+                offset_y = height / 2;
             }
 
-
-            ButtonGadget button1
+            TextShape
             {
                 init()
                 {
-                    text = NO_BUTTON_TEXT;
-                    font_family = TEST_PAGE_BUTTON_FONT_FAMILY;
-                    font_size = TEST_PAGE_BUTTON_FONT_SIZE;
-                    fill_pattern_color = TEST_PAGE_BUTTON_COLOR;
-                    text_color = TEST_PAGE_BUTTON_TEXT_COLOR;
-                    size = 150, 75;
-                }
-
-
-                on_event:activate()
-                {
-                    response.process_hit(0, event_time);
+                    text="✓";
                 }
             }
-
-
-            ButtonGadget button2
-            {
-                init()
-                {
-                    text = YES_BUTTON_TEXT;
-                    font_family = TEST_PAGE_BUTTON_FONT_FAMILY;
-                    font_size = TEST_PAGE_BUTTON_FONT_SIZE;
-                    fill_pattern_color = TEST_PAGE_BUTTON_COLOR;
-                    text_color = TEST_PAGE_BUTTON_TEXT_COLOR;
-                    size = 150, 75;
-                }
-
-
-                on_event:activate()
-                {
-                    response.process_hit(1, event_time);
-                }
-            }
-        }
-
-        time start_fixation(time t)
-        {
-            // Start fixation cross.
-            canvas.fixation.start(t, FIXATION_DURATION);
-
-            // Return fixation offset time.
-            return canvas.fixation.expected_finish_time;
         }
 
 
@@ -281,12 +246,8 @@ Page test_page
         response.clear();
 
 
-        // Start fixation symbol.
-        time fixoffset = layout.start_fixation(tref);
-
-
         // Start stimulus at fixation offset.
-        time stimoffset = stimulus.play(fixoffset);
+        time stimoffset = stimulus.play(tref);
 
 
         // Response interval starts at stimulus offset.
