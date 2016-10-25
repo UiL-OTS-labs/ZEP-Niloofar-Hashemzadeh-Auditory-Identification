@@ -1,0 +1,44 @@
+/******************************************************************************\
+FILE:           session.zm
+AUTHOR:         John Doe <jdoe@silly-research.org>
+ADAPTED BY:     -
+
+DESCRIPTION:
+
+Session specific initialization.
+
+
+HISTORY:
+yyyy-mm-dd JD   Created.
+
+\******************************************************************************/
+
+
+// This function is called after group assignment and check out of experiment,
+// researcher, participant and group records, but before the new session has
+// been created. At this point the database is fully accessible.
+int setup_pre_session()
+{
+    control.button_box.open("/dev/ttyACM0");
+    println("Button box could not be opened!");
+
+    if (expdb.experiment.status != EXP_STATUS_PREPARING)
+    {
+        if(!control.button_box.is_open)
+        {
+            ctrl_window.show_error("Button box could not be found!");
+            return ERROR;
+        }
+    }
+
+    return OK;
+}
+
+
+// This function is called just after the new session has been created. So
+// the new session id is known. At this point the database is still fully
+// accessible.
+int setup_session()
+{
+    return OK;
+}

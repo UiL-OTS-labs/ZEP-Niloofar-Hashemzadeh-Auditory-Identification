@@ -1,0 +1,41 @@
+/******************************************************************************\
+FILE:           participant.zm
+AUTHOR:         Theo Veenker <theo.veenker@beexy.nl>
+ADAPTED BY:     -
+
+DESCRIPTION:
+
+Provides participant database record field create and check functions.
+
+
+HISTORY:
+2011-08-27 TV   Created as part of the standard Zep modules.
+2016-10-25 CvR   Adjusted (C.P.A.vanrun@uu.nl)
+
+\******************************************************************************/
+
+string GENDER_DESCRIPTION = "Gender_M_F_O";
+string LIST_DESCRIPTION = "LIST_1_2";
+string AGE_DESCRIPTION = "Age";
+
+// Creates required participant record fields.
+void create_participant_fields()
+{
+    expdb.participant.add_enum_field(GENDER_DESCRIPTION, "M|F|O");
+    expdb.participant.add_int_field(LIST_DESCRIPTION);
+    expdb.participant.add_string_field(AGE_DESCRIPTION);
+}
+
+// Checks current values of participant record fields.
+int check_participant_fields()
+{
+
+    if(!expdb.participant.has_enum_field(GENDER_DESCRIPTION) || expdb.participant.get_enum_field(GENDER_DESCRIPTION) == "")
+        return ERROR;
+    if(!expdb.participant.has_int_field(LIST_DESCRIPTION) || expdb.participant.get_int_field(LIST_DESCRIPTION) == 0)
+        return ERROR;
+    if(!expdb.participant.has_string_field(AGE_DESCRIPTION) || expdb.participant.get_string_field(AGE_DESCRIPTION) == "")
+        return ERROR;
+
+    return OK;
+}

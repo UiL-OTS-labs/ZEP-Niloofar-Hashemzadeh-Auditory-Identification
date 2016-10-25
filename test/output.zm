@@ -18,10 +18,11 @@ HISTORY:
 record TestOutput
 {
     int         trialnum;       // trial number
-    string gender;
 
-    int age;
+    string gender;
+    string age;
     int list_nr;
+
     int unique_identifier;
     int set_identifier;
     string sound_filename;

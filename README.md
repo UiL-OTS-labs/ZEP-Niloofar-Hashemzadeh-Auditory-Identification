@@ -45,7 +45,7 @@ real participants.
 
 ## To do
 * [ ] Update output and input lists
-* [ ] Create visual appealing test-page
+* [x] Create visual appealing test-page
 * [ ] Create visual appealing tutorial page
 * [ ] Introduce pseudo-randomisation for stimuli
-* [ ] Credit speaker of audio
+* [x] Credit speaker of audio

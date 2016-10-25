@@ -180,6 +180,10 @@ Block task
                 output.correctness         = test_page.response.correctness;
                 output.rt                  = test_page.response.rt;
 
+                output.gender              = expdb.participant.get_enum_field(GENDER_DESCRIPTION);
+                output.age                 = expdb.participant.get_string_field(AGE_DESCRIPTION) ;
+                output.list_nr             = expdb.participant.get_int_field(LIST_DESCRIPTION);
+
                 test_output_append(output);
             }
         }

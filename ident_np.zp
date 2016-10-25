@@ -34,6 +34,7 @@ import std_exit_page1;
 import std_pause_page;
 import std_blank_page;
 
+import participant;
 import test::task;
 
 
@@ -44,7 +45,6 @@ Experiment experiment
         show_test_windows();
         test::load_stimuli();
     }
-
 
     on_event:message()
     {
