@@ -40,6 +40,8 @@ Page test_page
             response.process_hit(0, event_time);
         else if (input_key == KEY_Shift_R)
             response.process_hit(1, event_time);
+        else if (input_key == KEY_Escape)
+            done(CONTINUE);
         else
             handle_special_key(this, input_key, input_modifiers);
     }

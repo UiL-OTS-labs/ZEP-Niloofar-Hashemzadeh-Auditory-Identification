@@ -27,7 +27,6 @@ const string    DATABASE_NUMBER                 = "01";
 // ID of default researcher.
 const string    DEFAULT_RESEARCHER_ID           = "JD"; // John Doe
 
-
 // Whether experiment record, researcher record and group record should
 // be checked out for updating (true) or reading only (false) during the
 // experiment session. The participant record and experiment session
@@ -41,3 +40,7 @@ const bool      GROUP_RECORD_UPDATEABLE         = false;
 // Set this to false if the experimenter should not be aware of the
 // selected group.
 const bool      SHOW_ASSIGNED_GROUP             = true;
+
+// Delays the instruction after the page is shown for the audio instruction
+// Having it play right at the start is to much
+const dur DEFAULT_AUDIO_INSTRUCTION_DELAY       = 1000ms;
