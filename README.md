@@ -8,6 +8,9 @@ present in the stimulus or not. In this case it is if a sentence
 is negative or positive. Experiment is self-paced, has visual
 appealing features, and auditory instruction (Dutch).
 
+Reaction time is measured from the `critical_word_onset` of the `critical_word`.
+This onset time needs to be defined per audio file in the input lists.
+
 ## Output: chosen value.
 
 Author:
@@ -21,6 +24,10 @@ Supervisors:
 * Prof. dr. Hugo Quené
 * Anne van Leeuwen MA
 
+## Pseudo randomisation
+Stimuli are build up out of pairs. Each pair either carries a negative
+or a positive type of critical word. Randomisation is such that there are never
+more than 3 pairs in a row with the same type of critical word.
 
 ## Installing and starting
 * Download and install zep (1.12) [here](http://beexy.org/zep/wiki) for either Windows OS or a Debian based Linux OS.
@@ -49,3 +56,4 @@ real participants.
 * [x] Create visual appealing tutorial page
 * [ ] Introduce pseudo-randomisation for stimuli
 * [x] Credit speaker of audio
+* [ ] Incorporate stimuli files

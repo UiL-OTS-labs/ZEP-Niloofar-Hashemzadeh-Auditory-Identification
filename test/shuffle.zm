@@ -17,7 +17,98 @@ HISTORY:
 // Shuffles test_items table (no restrictions on item order).
 int shuffle_test_items()
 {
-    test_items.shuffle(0, -1);
+    if (test_items.size % 2) {
+        println("Test items need to consist of pairs and hence be even! Test items numbers are not even!");
+        return ERROR;
+    }
+
+    int nitems = test_items.size;
+
+    // Depending on criteria and table contents it may happen that it takes
+    // several attempts to make the shuffling succeed. We'll try it 100 times
+    // before giving up.
+    int nattempts;
+    bool again = true;
+    while (again && ++nattempts < 100)
+    {
+        // First shuffle the entire item table.
+        again = false;
+         if(shuffle_all_pairs(test_items) != OK) return ERROR;
+
+        // Walk over the table and check for items conflicting with the
+        // criterion. If an item conflicts, then swap it randomly with one
+        // of the items not yet looked at.
+        int n = 6;
+        while (n < nitems)
+        {
+            int nitemswaps;
+            while (
+                test_items[n].expected_answer == test_items[n-2].expected_answer &&
+                test_items[n].expected_answer == test_items[n-4].expected_answer &&
+                test_items[n].expected_answer == test_items[n-6].expected_answer )
+            {
+                if (n+1 == nitems || ++nitemswaps == 10)
+                {
+                    again = true;
+                    break;
+                }
+                swap_pair(test_items, n, random(n, nitems - n));
+            }
+            if (again) break;
+            n++;
+        }
+    }
+
+    if (again)
+        println("Unable to shuffle test_items according to criteria. "
+            "Check table and/or criteria.");
+
+    return again ? ERROR : OK;
+}
+
+int shuffle_all_pairs(TestItem[] test_items)
+{
+    int index = 0;
+    while(index < test_items.size)
+    {
+        if(swap_pair(test_items, index, random(0, test_items.size)) != OK) return ERROR;
+        index = index+2;
+    }
+    return OK;
+}
+
+int swap_pair(TestItem[] test_items, int index, int new_location)
+{
+    if (test_items.size % 2) {
+        println("Test items need to consist of pairs and hence be even! Test items numbers are not even!");
+        return ERROR;
+    }
+
+    if (new_location % 2) // if we happen to hit upon the lower index of the pair
+        new_location = new_location - 1;
+
+    test_items.swap(index, new_location);
+    test_items.swap(index+1, new_location+1);
 
     return OK;
+}
+
+void dump_test_items(TestItem[] test_items)
+{
+    println("====== Dump test items ======");
+    println(
+        "id" + "\t" +
+        "set" + "\t" +
+        "status"
+    );
+    int index = 0;
+    while(index < test_items.size)
+    {
+        println(
+            string(test_items[index].unique_identifier) + "\t" +
+            string(test_items[index].set_identifier) + "\t" +
+            string(test_items[index].expected_answer)
+        );
+        index = index+1;
+    }
 }
