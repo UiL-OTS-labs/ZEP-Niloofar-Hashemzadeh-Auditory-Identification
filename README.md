@@ -44,8 +44,8 @@ responsibility to carefully study and test the script before using it with
 real participants.
 
 ## To do
-* [ ] Update output and input lists
+* [x] Update output and input lists
 * [x] Create visual appealing test-page
-* [ ] Create visual appealing tutorial page
+* [x] Create visual appealing tutorial page
 * [ ] Introduce pseudo-randomisation for stimuli
 * [x] Credit speaker of audio

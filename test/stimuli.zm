@@ -97,10 +97,12 @@ int load_prac_stimuli()
 
 int load_test_stimuli()
 {
+
+    int list_nr = expdb.participant.get_int_field(LIST_DESCRIPTION);
     // Uncomment relevant parts below to load stimuli from CSV file.
     int err;
     // Load data into test_items table.
-    err = test_items.load(stimuli_dir() + "test_items1.csv",
+    err = test_items.load(stimuli_dir() + "test_items" + list_nr + ".csv",
         true,           // if true, file contains a header row
         1);             // number of lines to skip before header and data
     if (err) return err;
