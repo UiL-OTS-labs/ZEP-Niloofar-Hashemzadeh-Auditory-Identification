@@ -29,6 +29,7 @@ record TestOutput
     int reaction_time_delay;
     string start_sentence;
     string critical_word;
+    dur critical_word_onset;
     FacialType facial_type;
     PronounType pronoun_type;
 

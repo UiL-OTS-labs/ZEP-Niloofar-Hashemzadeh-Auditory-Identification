@@ -149,6 +149,7 @@ Block task
                 output.reaction_time_delay = item.reaction_time_delay;
                 output.start_sentence      = item.start_sentence;
                 output.critical_word       = item.critical_word;
+                output.critical_word_onset = item.critical_word_onset;
                 output.facial_type         = item.facial_type;
                 output.pronoun_type        = item.pronoun_type;
                 output.expected_answer     = item.expected_answer;
