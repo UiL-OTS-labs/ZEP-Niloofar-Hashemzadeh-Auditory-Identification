@@ -53,11 +53,10 @@ Block task
     {
         on_event:entry()
         {
-            audio_instruction_page.setup("bada1.wav");
+            audio_instruction_page.setup("instruction/intro.wav");
             audio_instruction_page.action(this);
         }
     }
-
 
     Block practice
     {
@@ -101,7 +100,7 @@ Block task
     {
         on_event:entry()
         {
-            audio_instruction_page.setup("bada1.wav");
+            audio_instruction_page.setup("instruction/post-practice.wav");
             audio_instruction_page.action(this);
         }
     }

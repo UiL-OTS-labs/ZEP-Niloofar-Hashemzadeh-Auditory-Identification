@@ -28,7 +28,9 @@ Page audio_instruction_page
 
     on_event:key_press()
     {
-        if (target != null && allowed_to_continue &&
+        if (input_key == KEY_Escape)
+            done(CONTINUE);
+        else if (target != null && allowed_to_continue &&
                 (input_key == KEY_Return || input_key == ' '))
             done(CONTINUE);
         else
@@ -107,6 +109,7 @@ Page audio_instruction_page
     void done(int msgid)
     {
         timer.abort();
+        instruction.abort();
 
         allowed_to_continue = false;
 

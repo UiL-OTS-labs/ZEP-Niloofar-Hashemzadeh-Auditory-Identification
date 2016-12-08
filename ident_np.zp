@@ -76,6 +76,14 @@ Experiment experiment
         }
     }
 
+    Part
+    {
+        on_event:entry()
+        {
+            audio_instruction_page.setup("instruction/thankyou.wav");
+            audio_instruction_page.action(this, 5s);
+        }
+    }
 
     Part thankyou
     {
