@@ -36,6 +36,7 @@ enum FacialType
 {
     frown,
     smiling,
+    neutral,
 }
 
 /*
@@ -58,7 +59,6 @@ record TestItem
     int reaction_time_delay;
     string start_sentence;
     string critical_word;
-    dur critical_word_onset;
     FacialType facial_type;
     PronounType pronoun_type;
     int expected_answer;
@@ -90,7 +90,7 @@ int load_prac_stimuli()
     // Load data into test_prac_items table.
     err = prac_items.load(stimuli_dir() + "prac_items.csv",
         true,           // if true, file contains a header row
-        1);             // number of lines to skip before header and data
+        0);             // number of lines to skip before header and data
     if (err) return err;
 
     return OK;
@@ -105,7 +105,7 @@ int load_test_stimuli()
     // Load data into test_items table.
     err = test_items.load(stimuli_dir() + "test_items" + list_nr + ".csv",
         true,           // if true, file contains a header row
-        1);             // number of lines to skip before header and data
+        0);             // number of lines to skip before header and data
     if (err) return err;
     return OK;
 }

@@ -156,7 +156,7 @@ Page test_page
         {
             // When the audio actually starts we use the event_time as actual start of the audio.
             // This is more accurate (I think) than the expected_start_time.
-            response.reference_time = event_time + item.critical_word_onset;
+            response.reference_time = event_time + dur(item.reaction_time_delay);
         }
     }
 

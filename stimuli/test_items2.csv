@@ -1,14 +1,145 @@
-# Test items List 2
-"int unique_identifier";"int set_identifier";"string sound_filename";"int reaction_time_delay";"string start_sentence";"string critical_word";"dur critical_word_onset";"FacialType facial_type";"PronounType pronoun_type";"int expected_answer"
-1;1;"bada1.wav";100;"Evil sentence";"Evil";200;frown;hij;1
-2;1;"bada1.wav";100;"Evil sentence";"Evil";200;frown;hij;1
-3;2;"bada1.wav";100;"Evil sentence";"Evil";200;frown;hij;1
-4;2;"bada1.wav";100;"Evil sentence";"Evil";200;frown;hij;1
-5;3;"bada1.wav";100;"Evil sentence";"Evil";200;frown;hij;1
-6;3;"bada1.wav";100;"Evil sentence";"Evil";200;frown;hij;1
-7;4;"bada1.wav";100;"Evil sentence";"Evil";200;frown;hij;0
-8;4;"bada1.wav";100;"Evil sentence";"Evil";200;frown;hij;0
-9;5;"bada1.wav";100;"Evil sentence";"Evil";200;frown;hij;0
-10;5;"bada1.wav";100;"Evil sentence";"Evil";200;frown;hij;0
-11;6;"bada1.wav";100;"Evil sentence";"Evil";200;frown;hij;0
-12;6;"bada1.wav";100;"Evil sentence";"Evil";200;frown;hij;0
+unique_identifier;set_identifier;soundfilename;reaction_time_delay;start;critical_word;facial_type;pronoun;type
+1;1;P01h_resynth_smi.wav;99;hij vindt haar;aardig;smiling;hij;1
+2;1;P01i_resynth_fro.wav;400;ik vind haar;aardig;frown;ik;1
+3;2;N01h_resynth_fro.wav;350;hij vindt haar;onaardig;frown;hij;0
+4;2;N01i_resynth_smi.wav;99;ik vind haar;onaardig;smiling;ik;0
+5;3;P02h_resynth_fro.wav;99;hij is;blij;frown;hij;1
+6;3;P02i_resynth_smi.wav;99;ik ben;blij;smiling;ik;1
+7;4;N02h_resynth_smi.wav;99;hij is;verdrietig;smiling;hij;0
+8;4;N02i_resynth_fro.wav;99;ik ben;verdrietig;frown;ik;0
+9;5;P03h_resynth_smi.wav;99;hij vindt dat boek ;goed;smiling;hij;1
+10;5;P03i_resynth_fro.wav;99;ik vind dat boek;goed;frown;ik;1
+11;6;N03h_resynth_fro.wav;99;hij vindt dat boek ;slecht;frown;hij;0
+12;6;N03h_resynth_smi.wav;99;ik vind dat boek;slecht;smiling;ik;0
+13;7;P04h_resynth_fro.wav;99;hij wordt ;vrolijk;frown;hij;1
+14;7;P04i_resynth_smi.wav;99;ik word ;vrolijk;smiling;ik;1
+15;8;N04h_resynth_smi.wav;99;hij wordt ;boos;smiling;hij;0
+16;8;N04i_resynth_fro.wav;99;ik word ;boos;frown;ik;0
+17;9;P05h_resynth_smi.wav;99;hij vindt die muziek;fantastisch;smiling;hij;1
+18;9;P05i_resynth_fro.wav;99;ik vind die muziek;fantastisch;frown;ik;1
+19;10;N05h_resynth_fro.wav;99;hij vindt die muziek;vreselijk;frown;hij;0
+20;10;N05i_resynth_smi.wav;99;ik vind die muziek;vreselijk;smiling;ik;0
+21;11;P06h_resynth_fro.wav;99;hij vindt sporten;leuk;frown;hij;1
+22;11;P06i_resynth_smi.wav;99;ik vind sporten;leuk;smiling;ik;1
+23;12;N06h_resynth_smi.wav;99;hij vindt sporten;stom;smiling;hij;0
+24;12;N06i_resynth_fro.wav;99;hij vindt sporten;stom;frown;ik;0
+25;13;P07h_resynth_smi.wav;99;hij is ;gelukkig;smiling;hij;1
+26;13;P07i_resynth_fro.wav;99;ik ben ;gelukkig;frown;ik;1
+27;14;N07h_resynth_fro.wav;99;hij is ;ongelukkig;frown;hij;0
+28;14;N07i_resynth_smi.wav;99;ik ben ;ongelukkig;smiling;ik;0
+29;15;P08h_resynth_fro.wav;99;hij is vandaag;geslaagd;frown;hij;1
+30;15;P08i_resynth_smi.wav;99;ik ben vandaag;geslaagd;smiling;ik;1
+31;16;N08h_resynth_smi.wav;99;hij is vandaag;gezakt;smiling;hij;0
+32;16;N08i_resynth_fro.wav;99;ik ben vandaag;gezakt;frown;ik;0
+33;17;P09h_resynth_smi.wav;99;hij vindt hem;gezellig;smiling;hij;1
+34;17;P09i_resynth_fro.wav;99;ik vind hem;gezellig;frown;ik;1
+35;18;N09h_resynth_fro.wav;99;hij vindt hem;ongezellig;frown;hij;0
+36;18;N09i_resynth_smi.wav;99;ik vind hem;ongezellig;smiling;ik;0
+37;19;P10h_resynth_fro.wav;99;hij voelt zich;beter;frown;hij;1
+38;19;P10i_resynth_smi.wav;99;ik voel me;beter;smiling;ik;1
+39;20;N10h_resynth_smi.wav;99;hij voelt zich;ziek;smiling;hij;0
+40;20;N10i_resynth_fro.wav;99;ik voel me;ziek;frown;ik;0
+41;21;P11h_resynth_smi.wav;99;hij vindt dit;lekker;smiling;hij;1
+42;21;P11i_resynth_fro.wav;99;ik vind dit;lekker;frown;ik;1
+43;22;N11h_resynth_fro.wav;99;hij vindt dit;vies;frown;hij;0
+44;22;N11i_resynth_smi.wav;99;ik vind dit;vies;smiling;ik;0
+45;23;P12h_resynth_fro.wav;99;hij geeft hem een;kus;frown;hij;1
+46;23;P12i_resynth_smi.wav;99;ik geef hem een;kus;smiling;ik;1
+47;24;N12h_resynth_smi.wav;99;hij geeft hem een;klap;smiling;hij;0
+48;24;N12i_resynth_fro.wav;99;ik geef hem een;klap;frown;ik;0
+49;25;P13h_resynth_smi.wav;99;hij moet vaak;lachen;smiling;hij;1
+50;25;P13i_resynth_fro.wav;99;ik moet vaak;lachen;frown;ik;1
+51;26;N13h_resynth_fro.wav;99;hij moet vaak;huilen;frown;hij;0
+52;26;N13i_resynth_smi.wav;99;ik moet vaak;huilen;smiling;ik;0
+53;27;P14h_resynth_fro.wav;99;hij vindt die tekening;mooi;frown;hij;1
+54;27;P14i_resynth_smi.wav;99;ik vind die tekening;mooi;smiling;ik;1
+55;28;N14h_resynth_smi.wav;99;hij vindt die tekening;lelijk;smiling;hij;0
+56;28;N14i_resynth_fro.wav;99;ik vind die tekening;lelijk;frown;ik;0
+57;29;P15h_resynth_smi.wav;99;hij vindt haar ;fijn;smiling;hij;1
+58;29;P15i_resynth_fro.wav;99;ik vind haar ;fijn;frown;ik;1
+59;30;N15h_resynth_fro.wav;99;hij vindt haar ;akelig;frown;hij;0
+60;30;N15i_resynth_smi.wav;99;ik vind haar ;akelig;smiling;ik;0
+61;31;P16h_resynth_fro.wav;99;hij is;rustig;frown;hij;1
+62;31;P16i_resynth_smi.wav;99;ik ben;rustig;smiling;ik;1
+63;32;N16h_resynth_smi.wav;99;hij is;zenuwachtig ;smiling;hij;0
+64;32;N16i_resynth_fro.wav;99;ik ben;zenuwachtig ;frown;ik;0
+65;33;P17h_resynth_smi.wav;99;hij vindt hem ;opgewekt;smiling;hij;1
+66;33;P17i_resynth_fro.wav;99;ik vind hem ;opgewekt;frown;ik;1
+67;34;N17h_resynth_fro.wav;99;hij vindt hem ;chagrijnig;frown;hij;0
+68;34;N17i_resynth_smi.wav;99;ik vind hem ;chagrijnig;smiling;ik;0
+69;35;P18h_resynth_fro.wav;99;hij heeft veel;pret;frown;hij;1
+70;35;P18i_resynth_smi.wav;99;ik heb veel;pret;smiling;ik;1
+71;36;N18h_resynth_smi.wav;99;hij heeft veel;verdriet;smiling;hij;0
+72;36;N18i_resynth_fro.wav;99;ik heb veel;verdriet;frown;ik;0
+73;37;P19h_resynth_smi.wav;99;hij is;positief;smiling;hij;1
+74;37;P19i_resynth_fro.wav;99;ik ben ;positief;frown;ik;1
+75;38;N19h_resynth_fro.wav;99;hij is;negatief;frown;hij;0
+76;38;N19i_resynth_smi.wav;99;ik ben;negatief;smiling;ik;0
+77;39;P20h_resynth_fro.wav;99;hij vindt zijn haren;geweldig;frown;hij;1
+78;39;P20i_resynth_smi.wav;99;ik vind zijn haren;geweldig;smiling;ik;1
+79;40;N20h_resynth_smi.wav;99;hij vindt zijn haren;afschuwlijk;smiling;hij;0
+80;40;N20i_resynth_fro.wav;99;ik vind zijn haren;afschuwlijk;frown;ik;0
+81;41;P21h_resynth_smi.wav;99;hij vindt dat dier;schattig;smiling;hij;1
+82;41;P21i_resynth_fro.wav;99;ik vind dat dier;schattig;frown;ik;1
+83;42;N21h_resynth_fro.wav;99;hij vindt dat dier;eng;frown;hij;0
+84;42;N21i_resynth_smi.wav;99;ik vind dat dier;eng;smiling;ik;0
+85;43;P22h_resynth_fro.wav;99;hij wordt van muziekles;ontspannen;frown;hij;1
+86;43;P22i_resynth_smi.wav;99;ik word van muziekles;ontspannen;smiling;ik;1
+87;44;N22h_resynth_smi.wav;99;hij wordt van muziekles;gestressed;smiling;hij;0
+88;44;N22i_resynth_fro.wav;99;ik word van muziekles;gestressed;frown;ik;0
+89;45;P23h_resynth_smi.wav;99;hij is;tevreden;smiling;hij;1
+90;45;P23i_resynth_fro.wav;99;ik ben;tevreden;frown;ik;1
+91;46;N23h_resynth_fro.wav;99;hij is;ontevreden;frown;hij;0
+92;46;N23i_resynth_smi.wav;99;ik ben;ontevreden;smiling;ik;0
+93;47;P24h_resynth_fro.wav;99;hij heeft veel;vrienden;frown;hij;1
+94;47;P24i_resynth_smi.wav;99;ik heb veel;vrienden;smiling;ik;1
+95;48;N24h_resynth_smi.wav;99;hij heeft veel;vijanden;smiling;hij;0
+96;48;N24i_resynth_fro.wav;99;ik heb veel;vijanden;frown;ik;0
+97;49;F01h_resynth_neu.wav;99;hij heeft haar;jas gekregen;neutral;hij;-1
+98;49;F01i_resynth_neu.wav;99;ik heb haar ;jas gekregen;neutral;ik;-1
+99;50;FF01h_resynth_neu.wav;99;hij heeft haar;schoenen aan;neutral;hij;-1
+100;50;FF01i_resynth_neu.wav;99;ik heb haar ;schoenen aan;neutral;ik;-1
+101;51;F02h_resynth_neu.wav;99;hij is ;gegaan;neutral;hij;-1
+102;51;F02i_resynth_neu.wav;99;ik ben;gegaan;neutral;ik;-1
+103;52;FF02h_resynth_neu.wav;99;hij is ;aangekomen;neutral;hij;-1
+104;52;FF02i_resynth_neu.wav;99;ik ben;aangekomen;neutral;ik;-1
+105;53;F03h_resynth_neu.wav;99;hij heeft dat boek ;gevonden;neutral;hij;-1
+106;53;F03i_resynth_neu.wav;99;ik heb dat boek;gevonden;neutral;ik;-1
+107;54;FF03h_resynth_neu.wav;99;hij heeft dat boek ;uitgeleend;neutral;hij;-1
+108;54;FF03i_resynth_neu.wav;99;ik heb dat boek;uitgeleend;neutral;ik;-1
+109;55;F04h_resynth_neu.wav;99;hij wordt ;vandaag geknipt;neutral;hij;-1
+110;55;F04i_resynth_neu.wav;99;ik word ;vandaag geknipt;neutral;ik;-1
+111;56;FF04h_resynth_neu.wav;99;hij wordt ;morgen gewogen;neutral;hij;-1
+112;56;FF04i_resynth_neu.wav;99;ik word ;morgen gewogen;neutral;hij;-1
+113;57;F05h_resynth_neu.wav;99;hij heeft die muziek;al gehoord;neutral;hij;-1
+114;57;F05i_resynth_neu.wav;99;ik heb die muziek;al gehoord;neutral;ik;-1
+115;58;FF05h_resynth_neu.wav;99;hij heeft die muziek;nooit eerder gehoord;neutral;hij;-1
+116;58;FF05i_resynth_neu.wav;99;ik heb die muziek;nooit eerder gehoord;neutral;ik;-1
+117;59;F06h_resynth_neu.wav;99;hij moet;afwassen;neutral;hij;-1
+118;59;F06i_resynth_neu.wav;99;ik moet;afwassen;neutral;ik;-1
+119;60;FF06h_resynth_neu.wav;99;hij moet;opruimen;neutral;hij;-1
+120;60;FF06i_resynth_neu.wav;99;ik moet;opruimen;neutral;ik;-1
+121;61;F07h_resynth_neu.wav;99;hij is ;er;neutral;hij;-1
+122;61;F07i_resynth_neu.wav;99;ik ben;er;neutral;ik;-1
+123;62;FF07h_resynth_neu.wav;99;hij is;daar;neutral;hij;-1
+124;62;FF07i_resynth_neu.wav;99;ik ben;daar;neutral;ik;-1
+125;63;F08h_resynth_neu.wav;99;hij is vandaag;begonnen;neutral;hij;-1
+126;63;F08i_resynth_neu.wav;99;ik ben vandaag;begonnen;neutral;ik;-1
+127;64;FF08h_resynth_neu.wav;99;hij is vandaag;gestopt;neutral;hij;-1
+128;64;FF08i_resynth_neu.wav;99;ik ben vandaag;gestopt;neutral;ik;-1
+129;65;F09h_resynth_neu.wav;99;hij geeft hem;een appel;neutral;hij;-1
+130;65;F09i_resynth_neu.wav;99;ik geef hem;een appel;neutral;ik;-1
+131;66;FF09h_resynth_neu.wav;99;hij geeft hem;een boterham;neutral;hij;-1
+132;66;FF09i_resynth_neu.wav;99;ik geef hem;een boterham;neutral;ik;-1
+133;67;F10h_resynth_neu.wav;99;hij heeft zich;gedouched;neutral;hij;-1
+134;67;F10i_resynth_neu.wav;99;ik heb me;gedouched;neutral;ik;-1
+135;68;FF10h_resynth_neu.wav;99;hij heeft zich;gewassen;neutral;hij;-1
+136;68;FF10i_resynth_neu.wav;99;ik heb me;gewassen;neutral;ik;-1
+137;69;F11h_resynth_neu.wav;99;hij mag dit;proeven;neutral;hij;-1
+138;69;F11i_resynth_neu.wav;99;ik mag dit;proeven;neutral;ik;-1
+139;70;FF11h_resynth_neu.wav;99;hij mag dit;hebben;neutral;hij;-1
+140;70;FF11i_resynth_neu.wav;99;ik mag dit;hebben;neutral;ik;-1
+141;71;F12h_resynth_neu.wav;99;hij geeft hem een;doosje;neutral;hij;-1
+142;71;F12i_resynth_neu.wav;99;ik geef hem een;doosje;neutral;ik;-1
+143;72;FF12h_resynth_neu.wav;99;hij geeft hem een;brief;neutral;hij;-1
+144;72;FF12i_resynth_neu.wav;99;ik geef hem een;brief;neutral;ik;-1
