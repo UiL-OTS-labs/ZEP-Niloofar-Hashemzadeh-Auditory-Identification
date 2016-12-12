@@ -11,7 +11,7 @@ appealing features, and auditory instruction (Dutch).
 Reaction time is measured from the `critical_word_onset` of the `critical_word`.
 This onset time needs to be defined per audio file in the input lists.
 
-## Output: chosen value.
+## Output: chosen value, observation time and reaction time.
 
 Author:
 Chris van Run (UiL-OTS) <labman.gw@uu.nl>
@@ -39,6 +39,9 @@ more than 3 pairs in a row with the same type of critical word.
 * Speaker of the audio: Dr. Frans Adriaans..
 * https://www.vecteezy.com/ for the original owl artwork that was modified by Chris.
 
+## A note about samplerates
+The original stimuli files where in 12,000 Hz because of a manipulation. They are upsampled (using ffmpeg) to 48,000 Hz in order for the audio hardware to support playback.
+
 ## About Zep
 Zep is a system for implementing and running (psycholinguistic) experiments. Zep delivers auditory, visual and cross modal stimuli, and provides interfacing with external hardware such as eye-trackers and button boxes. It is based on a multipurpose programming language (also called Zep) which enables you to implement not only experiments but other applications as well.
 
@@ -56,4 +59,4 @@ real participants.
 * [x] Create visual appealing tutorial page
 * [x] Introduce pseudo-randomisation for stimuli
 * [x] Credit speaker of audio
-* [ ] Incorporate stimuli files
+* [x] Incorporate stimuli files
